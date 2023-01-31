@@ -11,6 +11,7 @@ pytesseract = "*"
 numpy = "*"
 imutils = "*"
 scikit-image = "*"
+gunicorn = "*"
 
 [dev-packages]
 
