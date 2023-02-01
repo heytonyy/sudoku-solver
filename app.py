@@ -1,4 +1,4 @@
-from flask import Flask, send_from_directory, request
+from flask import Flask, request
 from flask_cors import CORS, cross_origin
 import cv2
 import numpy as np
@@ -12,8 +12,8 @@ CORS(app)
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
-def index(path):
-    return send_from_directory(app.static_folder, 'index.html')
+def catch_all(path):
+    return app.send_static_file('index.html')
 
 @app.route('/api/sudoku_grid', methods=['POST'])
 @cross_origin()
