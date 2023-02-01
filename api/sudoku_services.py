@@ -59,7 +59,7 @@ def create_sudoku_board(image):
                     pred = '0'
 
                 # updates the Sudoku board with the prediction
-                board[y][x] = int(pred)
+                board[y][x] = int(float(pred))
 
     return board
 
