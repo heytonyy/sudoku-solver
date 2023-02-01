@@ -3,6 +3,10 @@ from flask import request, abort
 from flask_cors import cross_origin
 from api.sudoku_services import find_solution_service
 
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def catch_all(path):
+    return app.send_static_file('index.html')
 
 @app.post('/api/sudoku_grid')
 @cross_origin()
