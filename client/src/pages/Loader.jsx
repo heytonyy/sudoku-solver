@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import { useStateContext } from '../context/stateContext'
 import { useNavigate } from 'react-router-dom'
 import { Image, Row, Col } from 'react-bootstrap'
+import { useStateContext } from '../context/stateContext'
 import loader from '../assets/loader.svg'
 
 

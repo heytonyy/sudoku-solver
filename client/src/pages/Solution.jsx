@@ -1,56 +1,7 @@
-import Button from 'react-bootstrap/Button'
-import { useStateContext } from '../context/stateContext'
-import { useNavigate } from 'react-router-dom'
 import { Image, Col } from 'react-bootstrap'
-
-const SolutionDisplay = () => {
-  const { state } = useStateContext()
-
-  return (
-    <table className='mx-auto'>
-      <thead>
-        <tr className='text-center border-header'>
-          <th colSpan='9'>Solution</th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-          state.solution.map((row, i) => {
-            return (
-              <tr key={i}>
-                {
-                  row.map((col, j) => {
-                    return (
-                      <td key={j} style={{ backgroundColor: col[1] === 'predicted' ? 'lightblue' : 'white' }}>
-                        {col[0]}
-                      </td>
-                    )
-                  })
-                }
-              </tr>
-            )
-          })
-        }
-      </tbody>
-    </table>
-  )
-}
-
-const ResetButton = () => {
-  const { dispatch } = useStateContext()
-  const navigate = useNavigate()
-
-  const handleReset = () => {
-    dispatch({ type: 'RESET' })
-    navigate('/')
-  }
-
-  return (
-    <Button onClick={handleReset}>
-      Reset
-    </Button>
-  )
-}
+import { useStateContext } from '../context/stateContext'
+import SolutionDisplay from '../components/SolutionDisplay'
+import ResetButton from '../components/ResetButton'
 
 const Solution = () => {
   const { state } = useStateContext()

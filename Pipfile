@@ -12,6 +12,7 @@ numpy = "*"
 imutils = "*"
 scikit-image = "*"
 gunicorn = "*"
+pillow = "*"
 
 [dev-packages]
 
