@@ -55,11 +55,14 @@ def create_sudoku_board(image):
                 # -c tessedit_char_whitelist=0123456789: only recognize digits
                 pred = pytesseract.image_to_string(
                     roi, config='--psm 10 --oem 3 -c tessedit_char_whitelist=0123456789')
-                if pred == '':
-                    pred = '0'
+                
+                if pred:
+                    pred = int(pred[0])
+                else:
+                    pred = 0
 
                 # updates the Sudoku board with the prediction
-                board[y][x] = int(float(pred))
+                board[y][x] = pred
 
     return board
 
