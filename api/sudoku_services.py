@@ -56,10 +56,10 @@ def create_sudoku_board(image):
                 pred = pytesseract.image_to_string(
                     roi, config='--psm 10 --oem 3 -c tessedit_char_whitelist=0123456789')
                 
-                if pred:
-                    pred = int(pred[0])
-                else:
+                if pred == '' or pred == '\x0c':
                     pred = 0
+                else:
+                    pred = int(pred[0])
 
                 # updates the Sudoku board with the prediction
                 board[y][x] = pred
