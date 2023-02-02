@@ -1,0 +1,4 @@
+
+
+class BugReportModel:
+    pass

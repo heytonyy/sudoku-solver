@@ -14,6 +14,7 @@ scikit-image = "*"
 gunicorn = "*"
 pillow = "*"
 flask-restful = "*"
+flask-sqlalchemy = "*"
 
 [dev-packages]
 autopep8 = "*"

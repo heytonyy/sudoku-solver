@@ -23,7 +23,7 @@ const ImageForm = () => {
     const apiCall = (formData) => {
         const url = 'https://sudoku-solver.herokuapp.com'
 
-        fetch(`${url}/api/sudoku_grid`, {
+        fetch(`${url}/api/sudoku`, {
             method: 'POST',
             body: formData,
         })

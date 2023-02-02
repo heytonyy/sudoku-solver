@@ -5,7 +5,7 @@ from api.SudokuModel import SudokuModel
 
 class SudokuService(Resource):
     def get(self):
-        return {"message": "Hello, World!"}
+        return {"message": "This resource is only available via POST requests."}
 
     def post(self):
         if 'file' not in request.files:
