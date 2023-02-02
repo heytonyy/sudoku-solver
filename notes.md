@@ -1,11 +1,22 @@
-from imutils.perspective import four_point_transform
-from skimage.segmentation import clear_border
-import imutils
-import numpy as np
-import cv2
-import pytesseract
+# BUILDPACK:
+- heroku buildpacks:set heroku/python
+- https://github.com/heroku/heroku-buildpack-apt
 
+# HEROKU CONFIG:
+- heroku config:set FLASK_APP=app.py
+- heroku config:set FLASK_ENV=development
+- heroku config:set TESSDATA_PREFIX=./.apt/usr/share/tesseract-ocr/4.00/tessdata
 
+# HEROKU DEPLOY:
+- heroku login
+- heroku git:remote -a sudoku-solver
+- git push heroku master
+
+# HEROKU LOGS:
+- heroku logs --tail
+
+# SUDOKU MODEL FUNCTIONS:
+```python
 def find_solution_service(file):
     img = cv2.imdecode(np.frombuffer(file.read(), np.uint8), cv2.IMREAD_UNCHANGED)
     board = create_sudoku_board(img)
@@ -13,7 +24,6 @@ def find_solution_service(file):
     return solution
 
 def create_sudoku_board(image):
-    # img = cv2.imread(image)
     img = imutils.resize(image, width=600)
 
     # find the puzzle in the image and then
@@ -55,7 +65,8 @@ def create_sudoku_board(image):
                 # -c tessedit_char_whitelist=0123456789: only recognize digits
                 pred = pytesseract.image_to_string(
                     roi, config='--psm 10 --oem 3 -c tessedit_char_whitelist=0123456789')
-                
+
+                # if the prediction is empty or contains a newline, set the prediction to 0
                 if pred == '' or pred == '\x0c':
                     pred = 0
                 else:
@@ -195,3 +206,4 @@ def dfs(board, x, y, rows, cols, boxes):
             rows[y][i] = 0
 
     return False
+```

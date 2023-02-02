@@ -13,8 +13,10 @@ imutils = "*"
 scikit-image = "*"
 gunicorn = "*"
 pillow = "*"
+flask-restful = "*"
 
 [dev-packages]
+autopep8 = "*"
 
 [requires]
 python_version = "3.9"
