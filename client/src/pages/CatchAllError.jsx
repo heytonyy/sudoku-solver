@@ -12,11 +12,13 @@ const CatchAllError = () => {
   }, [navigate])
 
   return (
-    <div className='bg-container pt-5'>
-      <Col xs={10} sm={8} md={6} className='mx-auto mt-5'>
-        <h1>404 Error</h1>
-        <h3>Redirecting to home page...</h3>
-      </Col>
+    <div className='bg-container'>
+      <div className='center-content'>
+        <Col xs={12} className='mx-auto text-light'>
+          <h1>404 Error</h1>
+          <h3>Redirecting to home page...</h3>
+        </Col>
+      </div>
     </div>
   )
 }

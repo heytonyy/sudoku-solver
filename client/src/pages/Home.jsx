@@ -4,13 +4,15 @@ import ImageFormUpload from '../components/ImageFormUpload'
 
 const Home = () => {
   return (
-    <div className='bg-container pt-5'>
-      <Col xs={10} sm={9} md={8} lg={7} className='mx-auto'>
-        <Header />
-      </Col>
-      <Col xs={8} sm={6} md={5} lg={3} className='mx-auto'>
-        <ImageFormUpload />
-      </Col>
+    <div className='bg-container'>
+      <div className='center-content'>
+        <Col xs={10} sm={9} md={8} lg={7} className='mx-auto'>
+          <Header />
+        </Col>
+        <Col xs={8} sm={6} md={4} lg={3} className='mx-auto'>
+          <ImageFormUpload />
+        </Col>
+      </div>
     </div>
   )
 }

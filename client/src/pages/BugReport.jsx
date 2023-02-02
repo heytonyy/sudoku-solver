@@ -1,12 +1,14 @@
 import { Col } from "react-bootstrap"
-import SolutionDisplay from "../components/SolutionDisplay"
+// import SolutionDisplay from "../components/SolutionDisplay"
 
 const BugReport = () => {
     return (
-        <div className='bg-container pt-5'>
-            <Col className='text-center mt-4'>
-                <SolutionDisplay />
-            </Col>
+        <div className='bg-container'>
+            <div className="center-content">
+                <Col xs={12} className='text-center text-light'>
+                    {/* <SolutionDisplay /> */}
+                </Col>
+            </div>
         </div>
     )
 }

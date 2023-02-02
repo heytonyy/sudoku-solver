@@ -1,5 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
-import GithubCorner from 'react-github-corner';
+import { BrowserRouter } from 'react-router-dom';
+import { StateProvider } from './context/stateContext';
+import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import Loader from './pages/Loader';
 import Solution from './pages/Solution';
@@ -11,17 +13,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
-    <>
-      <GithubCorner href="https://github.com/heytonyy" />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/loading" element={<Loader />} />
-        <Route path="/solution" element={<Solution />} />
-        <Route path="/error" element={<Error />} />
-        <Route path="/bugreport" element={<BugReport />} />
-        <Route path="*" element={<CatchAllError />} />
-      </Routes>
-    </>
+    <BrowserRouter>
+      <NavBar />
+      <StateProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/loading" element={<Loader />} />
+          <Route path="/solution" element={<Solution />} />
+          <Route path="/error" element={<Error />} />
+          <Route path="/bugreport" element={<BugReport />} />
+          <Route path="*" element={<CatchAllError />} />
+        </Routes>
+      </StateProvider>
+    </BrowserRouter>
   );
 }
 

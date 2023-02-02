@@ -5,11 +5,6 @@ const SolutionDisplay = () => {
 
     return (
         <table className='mx-auto'>
-            <thead>
-                <tr className='text-center border-header'>
-                    <th colSpan='9'>Solution</th>
-                </tr>
-            </thead>
             <tbody>
                 {
                     state.solution.map((row, i) => {

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Image, Row, Col } from 'react-bootstrap'
+import { Image, Col } from 'react-bootstrap'
 import { useStateContext } from '../context/stateContext'
 import loader from '../assets/loader.svg'
 
@@ -25,15 +25,15 @@ const Loader = () => {
 
   return (
     <div className='bg-container'>
-      {
-        state.img &&
-        <Row className='d-flex justify-content-center align-items-center h-100'>
-          <Col className='text-center'>
-            <h3>Calculating...</h3>
+      <div className='center-content'>
+        {
+          state.img &&
+          <Col xs={12} className='mx-auto text-center text-light'>
+            <h1>Calculating...</h1>
             <Image src={loader} fluid alt='loader' />
           </Col>
-        </Row>
-      }
+        }
+      </div>
     </div>
   )
 }
