@@ -15,6 +15,7 @@ gunicorn = "*"
 pillow = "*"
 flask-restful = "*"
 flask-sqlalchemy = "*"
+pymongo = "*"
 
 [dev-packages]
 autopep8 = "*"
