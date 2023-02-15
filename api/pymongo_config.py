@@ -2,9 +2,14 @@ from pymongo import MongoClient
 from pymongo.database import Database
 from pymongo.collection import Collection
 
+import os
+import certifi
+from dotenv import load_dotenv
+load_dotenv()
+
 class PyMongoConnection:
     def __init__(self, db: str, collection: str) -> None:
-        self.client: MongoClient = MongoClient('localhost', 27017)
+        self.client: MongoClient = MongoClient(os.getenv('MONGO_CONNECTION'), tlsCAFile=certifi.where())
         self.db: Database = self.client[db]
         self.collection: Collection = self.db[collection]
     
@@ -31,6 +36,3 @@ class PyMongoConnection:
 
     def close(self) -> None:
         self.client.close()
-
-def connect_to_mongo(db, collection):
-    return PyMongoConnection(db, collection)

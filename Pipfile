@@ -16,6 +16,8 @@ pillow = "*"
 flask-restful = "*"
 flask-sqlalchemy = "*"
 pymongo = "*"
+python-dotenv = "*"
+certifi = "*"
 
 [dev-packages]
 autopep8 = "*"

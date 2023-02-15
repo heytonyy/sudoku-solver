@@ -1,6 +1,6 @@
-from pymongo_config import connect_to_mongo
+from .pymongo_config import PyMongoConnection
 
-class BugReportModel:
+class BugReport:
     def __init__(self, data):
         self.id = data['id']
         self.image = data['image']
@@ -13,15 +13,15 @@ class BugReportModel:
 
     @classmethod
     def save_to_mongo(cls, data):
-        db = connect_to_mongo('sudoku', 'bug_reports')
+        db = PyMongoConnection('sudoku', 'bug_reports')
         db.insert_one(data)
 
     @classmethod
     def find_by_id(cls, id):
-        db = connect_to_mongo('sudoku', 'bug_reports')
+        db = PyMongoConnection('sudoku', 'bug_reports')
         return db.find_one({'id': id})
     
     @classmethod
     def find_all(cls):
-        db = connect_to_mongo('sudoku', 'bug_reports')
+        db = PyMongoConnection('sudoku', 'bug_reports')
         return db.find_all({})
