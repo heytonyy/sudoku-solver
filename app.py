@@ -4,10 +4,14 @@ from flask_restful import Api
 from api.SudokuService import SudokuService
 from api.BugReportService import BugReportService
 
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 
 # FLASK config
 app = Flask(__name__, static_folder='client/build', static_url_path='')
-app.config['UPLOAD_FOLDER'] = '/Users/tonyaiello/Desktop/projects/sudoku-solver/logs/images'
+app.config['UPLOAD_FOLDER'] = os.getenv('UPLOAD_FOLDER')
 
 
 # CORS config

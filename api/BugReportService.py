@@ -6,9 +6,11 @@ from .pymongo_config import PyMongoConnection
 import os
 from uuid import uuid4
 from werkzeug.utils import secure_filename
+from dotenv import load_dotenv
+load_dotenv()
 
-IMG_ABSOLUTE_PATH = '/Users/tonyaiello/Desktop/projects/sudoku-solver/logs/images'
-RELATIVE_PATH = '/Users/tonyaiello/Desktop/projects/sudoku-solver/logs'
+IMG_ABSOLUTE_PATH = os.getenv('IMG_ABSOLUTE_PATH')
+RELATIVE_PATH = os.getenv('RELATIVE_PATH')
 
 
 # make image names unique
