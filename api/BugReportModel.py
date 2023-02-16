@@ -12,7 +12,7 @@ class BugReport:
         return f'{{"id": {self.id}, "image": {self.image}, "solution": {self.solution}, "reported_cells": {self.reported_cells}, "created_at": {self.created_at}}}'
 
     @classmethod
-    def save_to_mongo(cls, data):
+    def create_bugreport(cls, data):
         db = PyMongoConnection('sudoku', 'bug_reports')
         db.insert_one(data)
 

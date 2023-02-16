@@ -23,7 +23,7 @@ const ImageForm = () => {
     const apiCall = (formData) => {
         const url = 'https://sudoku-solver.herokuapp.com'
 
-        fetch(`${url}/api/sudoku`, {
+        fetch(`/api/sudoku`, {
             method: 'POST',
             body: formData,
         })
@@ -70,6 +70,7 @@ const ImageForm = () => {
             <Form onSubmit={handleFormRequest} className='p-2'>
                 <Form.Group>
                     <Form.Control
+                        id='file'
                         ref={formRef}
                         type="file"
                         accept="image/*"

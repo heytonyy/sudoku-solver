@@ -7,6 +7,7 @@ from api.BugReportService import BugReportService
 
 # FLASK config
 app = Flask(__name__, static_folder='client/build', static_url_path='')
+app.config['UPLOAD_FOLDER'] = '/Users/tonyaiello/Desktop/projects/sudoku-solver/logs/images'
 
 
 # CORS config
